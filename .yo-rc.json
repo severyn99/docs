@@ -1,0 +1,39 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.yankevych.tickets"
+    },
+    "jhipsterVersion": "6.8.0",
+    "applicationType": "monolith",
+    "baseName": "tickets",
+    "packageName": "com.yankevych.tickets",
+    "packageFolder": "com/yankevych/tickets",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "no",
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Disk",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "MWFhZGRiMmJkZjNjMTM1MDcyN2NiN2IyOGJjMWI1MzJhMjlkMjExMzRjNTM0NGU3ODhlNWVjYTJhMTk5ZjRiNjEwMzE4MWY1Y2UzMmQ0ZDc2MmEwNmZjZTQxYTBhMDQzNmU1Y2Y3OWJkNjQ4ODVjOTg3YjQzMzQzY2VmMTA0N2Q=",
+    "embeddableLaunchScript": false,
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "clientFramework": "angularX",
+    "clientTheme": "cerulean",
+    "clientThemeVariant": "dark",
+    "creationTimestamp": 1589334067330,
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": false,
+    "blueprints": []
+  }
+}
