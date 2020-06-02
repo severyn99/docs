@@ -1,0 +1,63 @@
+entity ServiceUser {
+	id Long
+    username String required maxlength(100)
+    age Integer
+   	phone String
+   	creditCard String
+}
+
+entity Passenger {
+	id Long
+    name String
+    age Integer
+}
+
+entity Ticket {
+	id Long
+    flightNumber String
+    username String
+    purchased ZonedDateTime
+    reservationId String
+    seatNumber String
+    maxKg Double
+    price Double
+}
+
+entity Payment {
+	id Long
+    date ZonedDateTime
+}
+
+entity Reservation {
+	id Long
+    date ZonedDateTime
+}
+
+entity City {
+	id Long
+    name String required
+}
+
+entity Flight {
+	id Long
+    number String
+    departureTime ZonedDateTime
+    arrivalTime ZonedDateTime
+}
+
+relationship ManyToOne {
+	Flight{to} to City
+    Flight{from} to City
+}
+
+relationship OneToMany {
+    ServiceUser{tickets} to Ticket{user}
+    Flight{tickets} to Ticket{flight}
+    ServiceUser{payments} to Payment{user}
+    Reservation{payments} to Payment{reservation} 
+        Flight{passengers} to Passenger{flight}
+}
+
+filter all 
+paginate all with infinite-scroll
+service all with serviceImpl

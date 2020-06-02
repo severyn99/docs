@@ -1,0 +1,33 @@
+{
+    "name": "Passenger",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "age",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "flight",
+            "otherEntityRelationshipName": "passengers",
+            "relationshipName": "flight",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200513015000",
+    "entityTableName": "passenger",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

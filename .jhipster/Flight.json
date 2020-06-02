@@ -1,0 +1,56 @@
+{
+    "name": "Flight",
+    "fields": [
+        {
+            "fieldName": "number",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "departureTime",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "arrivalTime",
+            "fieldType": "ZonedDateTime"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "ticket",
+            "otherEntityRelationshipName": "flight",
+            "relationshipName": "tickets"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "passenger",
+            "otherEntityRelationshipName": "flight",
+            "relationshipName": "passengers"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "city",
+            "otherEntityRelationshipName": "flight",
+            "relationshipName": "to",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "city",
+            "otherEntityRelationshipName": "flight",
+            "relationshipName": "from",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200513015500",
+    "entityTableName": "flight",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

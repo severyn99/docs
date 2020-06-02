@@ -1,0 +1,66 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="ticket">
+            <h2><span>Ticket</span> {{ ticket.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span>Flight Number</span></dt>
+                <dd>
+                    <span>{{ ticket.flightNumber }}</span>
+                </dd>
+                <dt><span>Username</span></dt>
+                <dd>
+                    <span>{{ ticket.username }}</span>
+                </dd>
+                <dt><span>Purchased</span></dt>
+                <dd>
+                    <span>{{ ticket.purchased }}</span>
+                </dd>
+                <dt><span>Reservation Id</span></dt>
+                <dd>
+                    <span>{{ ticket.reservationId }}</span>
+                </dd>
+                <dt><span>Seat Number</span></dt>
+                <dd>
+                    <span>{{ ticket.seatNumber }}</span>
+                </dd>
+                <dt><span>Max Kg</span></dt>
+                <dd>
+                    <span>{{ ticket.maxKg }}</span>
+                </dd>
+                <dt><span>Price</span></dt>
+                <dd>
+                    <span>{{ ticket.price }}</span>
+                </dd>
+                <dt><span>User</span></dt>
+                <dd>
+                    <div *ngIf="ticket.user">
+                        <a [routerLink]="['/service-user', ticket.user?.id, 'view']">{{ ticket.user?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span>Flight</span></dt>
+                <dd>
+                    <div *ngIf="ticket.flight">
+                        <a [routerLink]="['/flight', ticket.flight?.id, 'view']">{{ ticket.flight?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/ticket', ticket.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

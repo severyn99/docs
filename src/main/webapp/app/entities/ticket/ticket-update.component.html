@@ -1,0 +1,85 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-ticket-heading">Create or edit a Ticket</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_flightNumber">Flight Number</label>
+                    <input type="text" class="form-control" name="flightNumber" id="field_flightNumber"
+                           formControlName="flightNumber"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_username">Username</label>
+                    <input type="text" class="form-control" name="username" id="field_username"
+                           formControlName="username"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_purchased">Purchased</label>
+                    <div class="d-flex">
+                        <input id="field_purchased" type="datetime-local" class="form-control" name="purchased" formControlName="purchased" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_reservationId">Reservation Id</label>
+                    <input type="text" class="form-control" name="reservationId" id="field_reservationId"
+                           formControlName="reservationId"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_seatNumber">Seat Number</label>
+                    <input type="text" class="form-control" name="seatNumber" id="field_seatNumber"
+                           formControlName="seatNumber"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_maxKg">Max Kg</label>
+                    <input type="number" class="form-control" name="maxKg" id="field_maxKg"
+                           formControlName="maxKg"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_price">Price</label>
+                    <input type="number" class="form-control" name="price" id="field_price"
+                           formControlName="price"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_user">User</label>
+                    <select class="form-control" id="field_user" name="user" formControlName="user">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="serviceUserOption.id === editForm.get('user')!.value?.id ? editForm.get('user')!.value : serviceUserOption" *ngFor="let serviceUserOption of serviceusers; trackBy: trackById">{{ serviceUserOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_flight">Flight</label>
+                    <select class="form-control" id="field_flight" name="flight" formControlName="flight">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="flightOption.id === editForm.get('flight')!.value?.id ? editForm.get('flight')!.value : flightOption" *ngFor="let flightOption of flights; trackBy: trackById">{{ flightOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

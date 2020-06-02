@@ -1,0 +1,62 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-flight-heading">Create or edit a Flight</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_number">Number</label>
+                    <input type="text" class="form-control" name="number" id="field_number"
+                           formControlName="number"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_departureTime">Departure Time</label>
+                    <div class="d-flex">
+                        <input id="field_departureTime" type="datetime-local" class="form-control" name="departureTime" formControlName="departureTime" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_arrivalTime">Arrival Time</label>
+                    <div class="d-flex">
+                        <input id="field_arrivalTime" type="datetime-local" class="form-control" name="arrivalTime" formControlName="arrivalTime" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_to">To</label>
+                    <select class="form-control" id="field_to" name="to" formControlName="to">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="cityOption.id === editForm.get('to')!.value?.id ? editForm.get('to')!.value : cityOption" *ngFor="let cityOption of cities; trackBy: trackById">{{ cityOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_from">From</label>
+                    <select class="form-control" id="field_from" name="from" formControlName="from">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="cityOption.id === editForm.get('from')!.value?.id ? editForm.get('from')!.value : cityOption" *ngFor="let cityOption of cities; trackBy: trackById">{{ cityOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

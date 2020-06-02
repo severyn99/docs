@@ -1,0 +1,60 @@
+{
+    "name": "Ticket",
+    "fields": [
+        {
+            "fieldName": "flightNumber",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "username",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "purchased",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "reservationId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "seatNumber",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "maxKg",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "price",
+            "fieldType": "Double"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "serviceUser",
+            "otherEntityRelationshipName": "tickets",
+            "relationshipName": "user",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "flight",
+            "otherEntityRelationshipName": "tickets",
+            "relationshipName": "flight",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200513015100",
+    "entityTableName": "ticket",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}
